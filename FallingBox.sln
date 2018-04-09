@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FallingBox", "FallingBox\FallingBox.vcxproj", "{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602} = {4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Engine", "Engine", "{36323969-558F-4938-859F-15A71A941C1E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Game", "Game", "{6B4CBF15-8B50-417C-8D92-6AD98F78F7A5}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine", "Engine\Engine.vcxproj", "{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}.Debug|x64.ActiveCfg = Debug|x64
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}.Debug|x64.Build.0 = Debug|x64
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}.Debug|x86.ActiveCfg = Debug|Win32
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}.Debug|x86.Build.0 = Debug|Win32
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}.Release|x64.ActiveCfg = Release|x64
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}.Release|x64.Build.0 = Release|x64
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}.Release|x86.ActiveCfg = Release|Win32
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308}.Release|x86.Build.0 = Release|Win32
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}.Debug|x64.ActiveCfg = Debug|x64
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}.Debug|x64.Build.0 = Debug|x64
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}.Debug|x86.ActiveCfg = Debug|Win32
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}.Debug|x86.Build.0 = Debug|Win32
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}.Release|x64.ActiveCfg = Release|x64
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}.Release|x64.Build.0 = Release|x64
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}.Release|x86.ActiveCfg = Release|Win32
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C30DB886-99F1-4DA6-AB62-8A8A6CEF3308} = {6B4CBF15-8B50-417C-8D92-6AD98F78F7A5}
+		{4A6AEF90-ECDA-4FE2-A405-191D8FBB1602} = {36323969-558F-4938-859F-15A71A941C1E}
+	EndGlobalSection
+EndGlobal
