@@ -101,7 +101,7 @@ void CTexture::setAlpha(Uint8 alpha)
 	SDL_SetTextureAlphaMod(m_sdlTexture, alpha);
 }
 
-void CTexture::render(int x, int y, SDL_Rect* clip /*= NULL*/, double angle /*= 0.0*/, SDL_Point* center /*= NULL*/, SDL_RendererFlip flip /*= SDL_FLIP_NONE*/)
+void CTexture::Render(int x, int y, SDL_Rect* clip /*= NULL*/, double angle /*= 0.0*/, SDL_Point* center /*= NULL*/, SDL_RendererFlip flip /*= SDL_FLIP_NONE*/)
 {
 	SDL_Rect renderQuad = { x, y, m_width, m_height };
 
@@ -112,7 +112,7 @@ void CTexture::render(int x, int y, SDL_Rect* clip /*= NULL*/, double angle /*= 
 	}
 
 	SDL_RenderCopyEx(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), 
-		m_sdlTexture, clip, &renderQuad, angle, center, flip);
+		m_sdlTexture, clip, NULL, angle, center, flip);
 }
 
 int CTexture::getWidth()

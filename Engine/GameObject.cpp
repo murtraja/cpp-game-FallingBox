@@ -1,5 +1,6 @@
 #include "Engine_pch.h"
 #include "GameObject.h"
+#include "Engine.h"
 
 
 CGameObject::CGameObject()
@@ -25,7 +26,15 @@ bool CGameObject::Update(double dt)
 
 bool CGameObject::Render()
 {
-	m_texture.render(m_x, m_y);
+	m_texture.Render(m_x, m_y);
+	return true;
+}
+
+bool CGameObject::Render(int width, int height)
+{
+	SDL_Rect objectViewPort = { m_x, m_y, width, height };
+	SDL_RenderSetViewport(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), &objectViewPort);
+	m_texture.Render(m_x, m_y);
 	return true;
 }
 

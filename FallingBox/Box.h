@@ -4,6 +4,7 @@
 
 class CBox : public CGameObject
 {
+	int m_width, m_height;
 public:
 	CBox();
 	~CBox();
@@ -12,5 +13,6 @@ public:
 	virtual bool Render() override;
 	virtual bool Destroy() override;
 	bool SetTexture(std::string path);
+	void SetDimension(int width, int height);
 };
 

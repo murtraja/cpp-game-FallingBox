@@ -22,7 +22,8 @@ bool CGame::Init()
 	}
 
 	m_box.SetId("box");
-	m_box.SetTexture("texture/brick_1.jpg");
+	m_box.SetTexture("texture/crate_2.png");
+	m_box.SetDimension(50, 50);
 	CEngine::GetInstance().GetWorld().Register(&m_box);
 
 	return true;

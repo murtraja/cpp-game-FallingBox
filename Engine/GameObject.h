@@ -15,6 +15,7 @@ public:
 	virtual bool Init();
 	virtual bool Update(double dt);
 	virtual bool Render();
+	virtual bool Render(int width, int height);
 	virtual bool Destroy();
 	bool HasValidId();
 	std::string GetId();

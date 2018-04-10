@@ -23,7 +23,7 @@ bool CBox::Update(double dt)
 
 bool CBox::Render()
 {
-	CGameObject::Render();
+	CGameObject::Render(m_width, m_height);
 	return true;
 }
 
@@ -36,4 +36,10 @@ bool CBox::SetTexture(std::string path)
 {
 	bool loaded = m_texture.loadFromFile(path);
 	return loaded;
+}
+
+void CBox::SetDimension(int width, int height)
+{
+	m_width = width;
+	m_height = height;
 }
