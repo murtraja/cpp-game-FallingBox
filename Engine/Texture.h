@@ -2,6 +2,8 @@
 
 #include "Engine_pch.h"
 
+#define ASSETS_PATH "../assets/"
+
 class CTexture
 {
 	SDL_Texture* m_sdlTexture;

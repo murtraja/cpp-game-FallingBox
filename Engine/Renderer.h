@@ -11,5 +11,7 @@ public:
 	bool Init();
 	bool Destroy();
 	SDL_Renderer* GetSDLRenderer();
+	void Draw();
+	void Clear();
 };
 

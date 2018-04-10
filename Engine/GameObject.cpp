@@ -5,6 +5,7 @@
 CGameObject::CGameObject()
 {
 	m_id = "";
+	SetPosition(0, 0);
 }
 
 
@@ -47,4 +48,10 @@ std::string CGameObject::GetId()
 void CGameObject::SetId(std::string id)
 {
 	m_id = id;
+}
+
+void CGameObject::SetPosition(int x, int y)
+{
+	m_x = x;
+	m_y = y;
 }

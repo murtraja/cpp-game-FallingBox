@@ -19,5 +19,6 @@ public:
 	bool HasValidId();
 	std::string GetId();
 	void SetId(std::string);
+	void SetPosition(int x, int y);
 };
 

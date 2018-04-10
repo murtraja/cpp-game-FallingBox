@@ -13,11 +13,19 @@ CWorld::~CWorld()
 
 bool CWorld::Update(double dt)
 {
+	for (auto it = m_objects.begin(); it != m_objects.end(); ++it)
+	{
+		(*it)->Update(dt);
+	}
 	return true;
 }
 
 bool CWorld::Render()
 {
+	for (auto it = m_objects.begin(); it != m_objects.end(); ++it)
+	{
+		(*it)->Render();
+	}
 	return true;
 }
 

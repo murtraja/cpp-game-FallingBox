@@ -17,6 +17,8 @@ bool CTexture::loadFromFile(std::string path)
 	free();
 	SDL_Texture* newTexture = NULL;
 
+	path = ASSETS_PATH + path;
+
 	SDL_Surface* loadedSurface = IMG_Load(path.c_str());
 	if (!loadedSurface)
 	{

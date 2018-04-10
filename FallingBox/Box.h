@@ -11,5 +11,6 @@ public:
 	virtual bool Update(double dt) override;
 	virtual bool Render() override;
 	virtual bool Destroy() override;
+	bool SetTexture(std::string path);
 };
 

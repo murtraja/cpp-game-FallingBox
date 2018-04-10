@@ -36,3 +36,13 @@ SDL_Renderer* CRenderer::GetSDLRenderer()
 {
 	return m_sdlRenderer;
 }
+
+void CRenderer::Draw()
+{
+	SDL_RenderPresent(m_sdlRenderer);
+}
+
+void CRenderer::Clear()
+{
+	SDL_RenderClear(m_sdlRenderer);
+}

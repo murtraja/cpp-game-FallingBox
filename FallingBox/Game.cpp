@@ -22,6 +22,7 @@ bool CGame::Init()
 	}
 
 	m_box.SetId("box");
+	m_box.SetTexture("texture/brick_1.jpg");
 	CEngine::GetInstance().GetWorld().Register(&m_box);
 
 	return true;

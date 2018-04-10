@@ -114,12 +114,14 @@ void CEngine::ProcessInputs()
 
 void CEngine::UpdateGameState(double dt)
 {
-
+	m_world.Update(dt);
 }
 
 void CEngine::RenderWorld()
 {
-	
+	m_renderer.Clear();
+	m_world.Render();
+	m_renderer.Draw();
 }
 
 CGameWindow& CEngine::GetWindow()
