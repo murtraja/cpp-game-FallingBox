@@ -1,7 +1,7 @@
 #include "Engine_pch.h"
 #include "Texture.h"
 #include "Engine.h"
-
+#include "Position.h"
 
 CTexture::CTexture()
 {
@@ -12,9 +12,9 @@ CTexture::~CTexture()
 {
 }
 
-bool CTexture::loadFromFile(std::string path)
+bool CTexture::LoadFromFile(std::string path)
 {
-	free();
+	Free();
 	SDL_Texture* newTexture = NULL;
 
 	path = ASSETS_PATH + path;
@@ -46,9 +46,9 @@ bool CTexture::loadFromFile(std::string path)
 	return m_sdlTexture != NULL;
 }
 
-bool CTexture::loadFromRenderedText(std::string textureText, SDL_Color textColor)
+bool CTexture::LoadFromRenderedText(std::string textureText, SDL_Color textColor)
 {
-	free();
+	Free();
 
 	//Render text surface
 	SDL_Surface* textSurface = TTF_RenderText_Solid(CEngine::GetInstance().GetFont().GetSDLFont(), textureText.c_str(), textColor);
@@ -75,7 +75,7 @@ bool CTexture::loadFromRenderedText(std::string textureText, SDL_Color textColor
 	return m_sdlTexture != NULL;
 }
 
-void CTexture::free()
+void CTexture::Free()
 {
 	if (m_sdlTexture)
 	{
@@ -86,17 +86,17 @@ void CTexture::free()
 	}
 }
 
-void CTexture::setColor(Uint8 red, Uint8 green, Uint8 blue)
+void CTexture::SetColor(Uint8 red, Uint8 green, Uint8 blue)
 {
 	SDL_SetTextureColorMod(m_sdlTexture, red, green, blue);
 }
 
-void CTexture::setBlendMode(SDL_BlendMode blending)
+void CTexture::SetBlendMode(SDL_BlendMode blending)
 {
 	SDL_SetTextureBlendMode(m_sdlTexture, blending);
 }
 
-void CTexture::setAlpha(Uint8 alpha)
+void CTexture::SetAlpha(Uint8 alpha)
 {
 	SDL_SetTextureAlphaMod(m_sdlTexture, alpha);
 }
@@ -113,6 +113,11 @@ void CTexture::Render(int x, int y, SDL_Rect* clip /*= NULL*/, double angle /*= 
 
 	SDL_RenderCopyEx(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), 
 		m_sdlTexture, clip, NULL, angle, center, flip);
+}
+
+void CTexture::Render(const CPosition& position)
+{
+	Render(position.m_x, position.m_y);
 }
 
 int CTexture::getWidth()

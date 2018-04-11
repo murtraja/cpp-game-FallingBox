@@ -2,13 +2,16 @@
 
 #include "Engine_pch.h"
 #include "Texture.h"
+#include "Position.h"
 
 class CGameObject
 {
+	b2Body *m_phyBody;
 protected:
-	int m_x, m_y;
+	CPosition m_position;
 	CTexture m_texture;
 	std::string m_id;
+	void MakeDynamicBox(int width, int height);
 public:
 	CGameObject();
 	~CGameObject();

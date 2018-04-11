@@ -3,10 +3,20 @@
 #include "Engine.h"
 
 
-CGameObject::CGameObject()
+void CGameObject::MakeDynamicBox(int width, int height)
 {
-	m_id = "";
-	SetPosition(0, 0);
+	b2BodyDef bodyDef;
+	bodyDef.type = b2_dynamicBody;
+	CPosition gamePos(m_position);
+	b2Vec2 worldPos = gamePos.ToBox2D();
+	bodyDef.position = worldPos;
+}
+
+CGameObject::CGameObject()
+	: m_phyBody(nullptr)
+	, m_position(0,0)
+	, m_id("")
+{
 }
 
 
@@ -26,15 +36,15 @@ bool CGameObject::Update(double dt)
 
 bool CGameObject::Render()
 {
-	m_texture.Render(m_x, m_y);
+	m_texture.Render(m_position);
 	return true;
 }
 
 bool CGameObject::Render(int width, int height)
 {
-	SDL_Rect objectViewPort = { m_x, m_y, width, height };
+	SDL_Rect objectViewPort = { m_position.m_x, m_position.m_y, width, height };
 	SDL_RenderSetViewport(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), &objectViewPort);
-	m_texture.Render(m_x, m_y);
+	m_texture.Render(m_position);
 	return true;
 }
 
@@ -61,6 +71,5 @@ void CGameObject::SetId(std::string id)
 
 void CGameObject::SetPosition(int x, int y)
 {
-	m_x = x;
-	m_y = y;
+	m_position.Set(x, y);
 }

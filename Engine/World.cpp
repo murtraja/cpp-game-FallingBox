@@ -11,6 +11,15 @@ CWorld::~CWorld()
 {
 }
 
+bool CWorld::Init()
+{
+	for (auto it = m_objects.begin(); it != m_objects.end(); ++it)
+	{
+		(*it)->Init();
+	}
+	return true;
+}
+
 bool CWorld::Update(double dt)
 {
 	for (auto it = m_objects.begin(); it != m_objects.end(); ++it)

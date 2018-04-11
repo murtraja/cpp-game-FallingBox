@@ -34,7 +34,7 @@ bool CBox::Destroy()
 
 bool CBox::SetTexture(std::string path)
 {
-	bool loaded = m_texture.loadFromFile(path);
+	bool loaded = m_texture.LoadFromFile(path);
 	return loaded;
 }
 
