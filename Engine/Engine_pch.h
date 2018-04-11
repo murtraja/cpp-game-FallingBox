@@ -17,5 +17,6 @@
 #include <SDL.h>
 #include <SDL_image.h>
 #include <SDL_ttf.h>
+#include <Box2D/Box2D.h>
 
 // TODO: reference additional headers your program requires here

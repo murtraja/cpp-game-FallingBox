@@ -44,6 +44,7 @@ bool CWorld::Register(CGameObject* object)
 	}
 
 	m_objects.push_back(object);
+	return true;
 }
 
 bool CWorld::Unregister(CGameObject* object)
