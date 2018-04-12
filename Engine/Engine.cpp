@@ -77,9 +77,9 @@ void CEngine::Run()
 		UpdateGameState((double)elapsedTime);
 		RenderWorld();
 		lastFrameStartTime = currentFrameStartTime;
-		if (m_deltaTime < ENGINE_FRAME_TIME)
+		if (elapsedTime < ENGINE_FRAME_TIME)
 		{
-			SDL_Delay(ENGINE_FRAME_TIME - m_deltaTime);
+			SDL_Delay(ENGINE_FRAME_TIME - elapsedTime);
 		}
 	}
 }

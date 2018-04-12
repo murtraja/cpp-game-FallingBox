@@ -8,17 +8,22 @@ CPosition::CPosition()
 {
 }
 
-CPosition::CPosition(int x, int y)
+CPosition::CPosition(float x, float y)
 	: m_x(x)
 	, m_y(y)
 {
+}
+
+CPosition::CPosition(const b2Vec2 pos)
+{
+	Set(pos.x, pos.y);
 }
 
 CPosition::~CPosition()
 {
 }
 
-void CPosition::Set(int x, int y)
+void CPosition::Set(float x, float y)
 {
 	m_x = x;
 	m_y = y;
@@ -26,5 +31,18 @@ void CPosition::Set(int x, int y)
 
 b2Vec2 CPosition::ToBox2D()
 {
-	return b2Vec2((float)m_x, (float)m_y);
+	return b2Vec2(m_x, m_y);
 }
+
+b2Vec2 CPosition::operator*(const float scalar)
+{
+	return b2Vec2(m_x*scalar, m_y*scalar);
+}
+
+CPosition& CPosition::operator*=(const float scalar)
+{
+	m_x *= scalar;
+	m_y *= scalar;
+	return *this;
+}
+

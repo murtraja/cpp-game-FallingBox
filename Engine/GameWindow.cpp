@@ -44,3 +44,13 @@ bool CGameWindow::Destroy()
 	m_sdlWindow = nullptr;
 	return true;
 }
+
+int CGameWindow::GetWidth() const
+{
+	return m_width;
+}
+
+int CGameWindow::GetHeight() const
+{
+	return m_height;
+}
