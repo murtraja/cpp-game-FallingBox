@@ -16,6 +16,7 @@ class CEngine
 	CRenderer m_renderer;
 	CGameFont m_font;
 	CWorld m_world;
+	CPhyEngine m_phyEngine;
 public:
 	static CEngine& GetInstance();
 	~CEngine();
@@ -25,9 +26,10 @@ public:
 	void ProcessInputs();
 	void UpdateGameState(double dt);
 	void RenderWorld();
-	CGameWindow& GetWindow();
-	CRenderer& GetRenderer();
-	CGameFont& GetFont();
-	CWorld& GetWorld();
+	static CGameWindow& GetWindow();
+	static CRenderer& GetRenderer();
+	static CGameFont& GetFont();
+	static CWorld& GetWorld();
+	static CPhyEngine& GetPhyEngine();
 };
 

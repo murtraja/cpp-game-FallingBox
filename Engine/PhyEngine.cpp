@@ -68,3 +68,8 @@ CPosition CPhyEngine::ScaleToPix(const CPosition& pos)
 {
 	return CPosition(ScaleToPix(pos.m_x), ScaleToPix(pos.m_y));
 }
+
+b2Body* CPhyEngine::CreateBody(b2BodyDef& bodyDef)
+{
+	return m_phyWorld.CreateBody(&bodyDef);
+}

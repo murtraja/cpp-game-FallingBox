@@ -131,20 +131,25 @@ void CEngine::RenderWorld()
 
 CGameWindow& CEngine::GetWindow()
 {
-	return m_gameWindow;
+	return CEngine::GetInstance().m_gameWindow;
 }
 
 CRenderer& CEngine::GetRenderer()
 {
-	return m_renderer;
+	return CEngine::GetInstance().m_renderer;
 }
 
 CGameFont& CEngine::GetFont()
 {
-	return m_font;
+	return CEngine::GetInstance().m_font;
 }
 
 CWorld& CEngine::GetWorld()
 {
-	return m_world;
+	return CEngine::GetInstance().m_world;
+}
+
+CPhyEngine& CEngine::GetPhyEngine()
+{
+	return CEngine::GetInstance().m_phyEngine;
 }

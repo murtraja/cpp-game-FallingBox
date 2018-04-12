@@ -10,7 +10,9 @@ class CPhyEngine
 public:
 	CPhyEngine();
 	~CPhyEngine();
-	
+
+
+
 	static b2Vec2 ToPhyPosition(const CPosition& pixPosition);
 	static CPosition ToPixPosition(const b2Vec2& phyPosition);
 	
@@ -22,5 +24,7 @@ public:
 	
 	static float ScaleToPix(float value);
 	static CPosition ScaleToPix(const CPosition& pos);
+	
+	b2Body* CreateBody(b2BodyDef& bodyDef);
 };
 

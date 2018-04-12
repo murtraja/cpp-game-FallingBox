@@ -7,9 +7,8 @@ void CGameObject::MakeDynamicBox(int width, int height)
 {
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
-	CPosition gamePos(m_position);
-	b2Vec2 worldPos = gamePos.ToBox2D();
-	bodyDef.position = worldPos;
+	bodyDef.position = CPhyEngine::ToPhyPosition(m_position);
+	CEngine::GetPhyEngine().CreateBody(bodyDef);
 }
 
 CGameObject::CGameObject()

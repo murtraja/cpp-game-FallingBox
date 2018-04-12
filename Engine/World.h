@@ -7,7 +7,6 @@
 class CWorld
 {
 	std::vector<CGameObject*> m_objects;
-	CPhyEngine m_phyEngine;
 public:
 	CWorld();
 	~CWorld();
