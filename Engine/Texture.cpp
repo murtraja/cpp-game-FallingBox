@@ -30,7 +30,7 @@ bool CTexture::LoadFromFile(std::string path)
 	SDL_SetColorKey(loadedSurface, SDL_TRUE, SDL_MapRGB(loadedSurface->format, 0, 0xFF, 0xFF));
 
 	//Create texture from surface pixels
-	newTexture = SDL_CreateTextureFromSurface(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), loadedSurface);
+	newTexture = SDL_CreateTextureFromSurface(CEngine::GetRenderer().GetSDLRenderer(), loadedSurface);
 	if (!newTexture)
 	{
 		printf("Unable to create texture from %s! SDL Error: %s\n", path.c_str(), SDL_GetError());
@@ -51,7 +51,7 @@ bool CTexture::LoadFromRenderedText(std::string textureText, SDL_Color textColor
 	Free();
 
 	//Render text surface
-	SDL_Surface* textSurface = TTF_RenderText_Solid(CEngine::GetInstance().GetFont().GetSDLFont(), textureText.c_str(), textColor);
+	SDL_Surface* textSurface = TTF_RenderText_Solid(CEngine::GetFont().GetSDLFont(), textureText.c_str(), textColor);
 	if (!textSurface)
 	{
 		printf("Unable to render text surface! SDL_ttf Error: %s\n", TTF_GetError());
@@ -59,7 +59,7 @@ bool CTexture::LoadFromRenderedText(std::string textureText, SDL_Color textColor
 	}
 	
 	//Create texture from surface pixels
-	m_sdlTexture = SDL_CreateTextureFromSurface(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), textSurface);
+	m_sdlTexture = SDL_CreateTextureFromSurface(CEngine::GetRenderer().GetSDLRenderer(), textSurface);
 	if (!m_sdlTexture)
 	{
 		printf("Unable to create texture from rendered text! SDL Error: %s\n", SDL_GetError());
@@ -111,7 +111,7 @@ void CTexture::Render(int x, int y, SDL_Rect* clip /*= NULL*/, double angle /*= 
 		renderQuad.h = clip->h;
 	}
 
-	SDL_RenderCopyEx(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), 
+	SDL_RenderCopyEx(CEngine::GetRenderer().GetSDLRenderer(), 
 		m_sdlTexture, clip, NULL, angle, center, flip);
 }
 
