@@ -26,7 +26,9 @@ public:
 		SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE);
 	void Render(const CPosition&);
 	
-	int getWidth();
-	int getHeight();
+	int GetWidth();
+	int GetHeight();
+
+	void SetDimension(int width, int height);
 };
 

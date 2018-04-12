@@ -12,10 +12,8 @@ CBox::~CBox()
 }
 
 bool CBox::Init()
-{
-	MakeDynamicBox(m_width, m_height);
-	CGameObject::Init();
-	return true;
+{	
+	return CGameObject::Init();
 }
 
 bool CBox::Update(float dt)
@@ -37,11 +35,16 @@ bool CBox::Destroy()
 bool CBox::SetTexture(std::string path)
 {
 	bool loaded = m_texture.LoadFromFile(path);
+	m_texture.SetDimension(m_width, m_height);
 	return loaded;
 }
 
-void CBox::SetDimension(int width, int height)
+void CBox::MakeDynamicBox()
 {
-	m_width = width;
-	m_height = height;
+	CGameObject::MakeDynamicBox(m_width, m_height);
+}
+
+void CBox::MakeStaticBox()
+{
+	CGameObject::MakeStaticBox(m_width, m_height);
 }

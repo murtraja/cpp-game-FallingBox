@@ -9,9 +9,9 @@ class CGameObject
 	b2Body *m_phyBody;
 protected:
 	CPosition m_position;
+	int m_width, m_height;
 	CTexture m_texture;
 	std::string m_id;
-	void MakeDynamicBox(int width, int height);
 public:
 	CGameObject();
 	~CGameObject();
@@ -24,5 +24,9 @@ public:
 	std::string GetId();
 	void SetId(std::string);
 	void SetPosition(int x, int y);
+	void SetDimension(int width, int height);
+
+	void MakeDynamicBox(int width, int height);
+	void MakeStaticBox(int width, int height);
 };
 

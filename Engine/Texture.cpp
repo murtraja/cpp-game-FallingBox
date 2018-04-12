@@ -112,7 +112,7 @@ void CTexture::Render(int x, int y, SDL_Rect* clip /*= NULL*/, double angle /*= 
 	}
 
 	SDL_RenderCopyEx(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), 
-		m_sdlTexture, clip, NULL, angle, center, flip);
+		m_sdlTexture, clip, &renderQuad, angle, center, flip);
 }
 
 void CTexture::Render(const CPosition& position)
@@ -120,12 +120,18 @@ void CTexture::Render(const CPosition& position)
 	Render(position.m_x, position.m_y);
 }
 
-int CTexture::getWidth()
+int CTexture::GetWidth()
 {
 	return m_width;
 }
 
-int CTexture::getHeight()
+int CTexture::GetHeight()
 {
 	return m_height;
+}
+
+void CTexture::SetDimension(int width, int height)
+{
+	m_width = width;
+	m_height = height;
 }

@@ -3,7 +3,7 @@
 #include "Position.h"
 #include "Engine.h"
 
-const float CPhyEngine::m_worldWidth(50.f);
+const float CPhyEngine::m_worldWidth(20.f);
 
 CPhyEngine::CPhyEngine()
 	: m_phyWorld(b2Vec2(0.0f, -10.0f))

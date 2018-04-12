@@ -3,6 +3,9 @@
 #include "Engine_pch.h"
 #include "Position.h"
 
+#define DEGTORAD 0.0174532925199432957f
+#define RADTODEG 57.295779513082320876f
+
 class CPhyEngine
 {
 	b2World m_phyWorld;
