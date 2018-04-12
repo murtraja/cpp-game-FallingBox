@@ -24,7 +24,7 @@ bool CGame::Init()
 	m_box.SetId("box");
 	m_box.SetDimension(50, 50);
 	m_box.SetTexture("texture/crate_2.png");
-	m_box.SetPosition(GAME_WINDOW_WIDTH / 2 - 27, 0);
+	m_box.SetPosition(GAME_WINDOW_WIDTH / 2 - 35, 0);
 	m_box.MakeDynamicBox();
 	CEngine::GetInstance().GetWorld().Register(&m_box);
 
