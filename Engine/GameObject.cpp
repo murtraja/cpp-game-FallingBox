@@ -42,7 +42,7 @@ bool CGameObject::Render()
 bool CGameObject::Render(int width, int height)
 {
 	SDL_Rect objectViewPort = { m_position.m_x, m_position.m_y, width, height };
-	SDL_RenderSetViewport(CEngine::GetRenderer().GetSDLRenderer(), &objectViewPort);
+	SDL_RenderSetViewport(CEngine::GetInstance().GetRenderer().GetSDLRenderer(), &objectViewPort);
 	m_texture.Render(m_position);
 	return true;
 }

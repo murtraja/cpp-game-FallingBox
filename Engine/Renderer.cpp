@@ -14,7 +14,7 @@ CRenderer::~CRenderer()
 
 bool CRenderer::Init()
 {
-	m_sdlRenderer = SDL_CreateRenderer(CEngine::GetWindow().GetSDLWindow(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+	m_sdlRenderer = SDL_CreateRenderer(CEngine::GetInstance().GetWindow().GetSDLWindow(), -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
 	if (!m_sdlRenderer)
 	{
 		printf("Renderer could not be created! SDL Error: %s\n", SDL_GetError());
