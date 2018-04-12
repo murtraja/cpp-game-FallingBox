@@ -11,7 +11,7 @@ public:
 	CPhyEngine();
 	~CPhyEngine();
 
-
+	void Update(float dt);
 
 	static b2Vec2 ToPhyPosition(const CPosition& pixPosition);
 	static CPosition ToPixPosition(const b2Vec2& phyPosition);

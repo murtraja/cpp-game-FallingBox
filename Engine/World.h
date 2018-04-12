@@ -11,7 +11,7 @@ public:
 	CWorld();
 	~CWorld();
 	bool Init();
-	bool Update(double dt);
+	bool Update(float dt);
 	bool Render();
 	bool Register(CGameObject* object);
 	bool Unregister(CGameObject* object);

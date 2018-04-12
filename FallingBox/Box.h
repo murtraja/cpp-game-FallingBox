@@ -9,7 +9,7 @@ public:
 	CBox();
 	~CBox();
 	virtual bool Init() override;
-	virtual bool Update(double dt) override;
+	virtual bool Update(float dt) override;
 	virtual bool Render() override;
 	virtual bool Destroy() override;
 	bool SetTexture(std::string path);

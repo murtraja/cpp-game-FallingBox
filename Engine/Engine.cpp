@@ -73,14 +73,19 @@ void CEngine::Run()
 	{
 		unsigned long currentFrameStartTime = SDL_GetTicks();
 		unsigned long elapsedTime = currentFrameStartTime - lastFrameStartTime;
+		printf("elapsed time: %lu\n", elapsedTime);
+		
 		ProcessInputs();
-		UpdateGameState((double)elapsedTime);
+		UpdateGameState((float)elapsedTime);
 		RenderWorld();
-		lastFrameStartTime = currentFrameStartTime;
-		if (elapsedTime < ENGINE_FRAME_TIME)
+		
+		unsigned long currentFrameTime = SDL_GetTicks() - currentFrameStartTime;
+		
+		if (currentFrameTime < ENGINE_FRAME_TIME)
 		{
-			SDL_Delay(ENGINE_FRAME_TIME - elapsedTime);
+			SDL_Delay(ENGINE_FRAME_TIME - currentFrameTime);
 		}
+		lastFrameStartTime = currentFrameStartTime;
 	}
 }
 
@@ -117,8 +122,9 @@ void CEngine::ProcessInputs()
 	}
 }
 
-void CEngine::UpdateGameState(double dt)
+void CEngine::UpdateGameState(float dt)
 {
+	m_phyEngine.Update(dt);
 	m_world.Update(dt);
 }
 
@@ -131,25 +137,25 @@ void CEngine::RenderWorld()
 
 CGameWindow& CEngine::GetWindow()
 {
-	return CEngine::GetInstance().m_gameWindow;
+	return m_gameWindow;
 }
 
 CRenderer& CEngine::GetRenderer()
 {
-	return CEngine::GetInstance().m_renderer;
+	return m_renderer;
 }
 
 CGameFont& CEngine::GetFont()
 {
-	return CEngine::GetInstance().m_font;
+	return m_font;
 }
 
 CWorld& CEngine::GetWorld()
 {
-	return CEngine::GetInstance().m_world;
+	return m_world;
 }
 
 CPhyEngine& CEngine::GetPhyEngine()
 {
-	return CEngine::GetInstance().m_phyEngine;
+	return m_phyEngine;
 }

@@ -16,7 +16,7 @@ public:
 	CGameObject();
 	~CGameObject();
 	virtual bool Init();
-	virtual bool Update(double dt);
+	virtual bool Update(float dt);
 	virtual bool Render();
 	virtual bool Render(int width, int height);
 	virtual bool Destroy();

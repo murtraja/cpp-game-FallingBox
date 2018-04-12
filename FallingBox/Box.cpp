@@ -13,12 +13,14 @@ CBox::~CBox()
 
 bool CBox::Init()
 {
+	MakeDynamicBox(m_width, m_height);
+	CGameObject::Init();
 	return true;
 }
 
-bool CBox::Update(double dt)
+bool CBox::Update(float dt)
 {
-	return true;
+	return CGameObject::Update(dt);
 }
 
 bool CBox::Render()
@@ -29,7 +31,7 @@ bool CBox::Render()
 
 bool CBox::Destroy()
 {
-	return true;
+	return CGameObject::Destroy();
 }
 
 bool CBox::SetTexture(std::string path)

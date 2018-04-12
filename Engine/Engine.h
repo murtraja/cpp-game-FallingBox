@@ -5,7 +5,7 @@
 #include "World.h"
 
 #define ENGINE_FPS 30.f
-#define ENGINE_FRAME_TIME 1000.f/30.f
+#define ENGINE_FRAME_TIME 1000.f/ENGINE_FPS
 
 class CEngine
 {
@@ -24,12 +24,12 @@ public:
 	void Run();
 	bool Destroy();
 	void ProcessInputs();
-	void UpdateGameState(double dt);
+	void UpdateGameState(float dt);
 	void RenderWorld();
-	static CGameWindow& GetWindow();
-	static CRenderer& GetRenderer();
-	static CGameFont& GetFont();
-	static CWorld& GetWorld();
-	static CPhyEngine& GetPhyEngine();
+	CGameWindow& GetWindow();
+	CRenderer& GetRenderer();
+	CGameFont& GetFont();
+	CWorld& GetWorld();
+	CPhyEngine& GetPhyEngine();
 };
 

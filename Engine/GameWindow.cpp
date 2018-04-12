@@ -3,8 +3,8 @@
 
 
 CGameWindow::CGameWindow()
-	: m_width(640)
-	, m_height(480)
+	: m_width(800)
+	, m_height(600)
 	, m_sdlWindow(nullptr)
 {
 }

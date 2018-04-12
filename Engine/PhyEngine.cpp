@@ -15,6 +15,11 @@ CPhyEngine::~CPhyEngine()
 {
 }
 
+void CPhyEngine::Update(float dt)
+{
+	m_phyWorld.Step(dt/1000.f, 6, 2);
+}
+
 b2Vec2 CPhyEngine::ToPhyPosition(const CPosition& pixPosition)
 {
 	CPosition phyPosition(TranslateToCenter(pixPosition));

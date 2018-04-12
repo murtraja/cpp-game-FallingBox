@@ -8,7 +8,14 @@ void CGameObject::MakeDynamicBox(int width, int height)
 	b2BodyDef bodyDef;
 	bodyDef.type = b2_dynamicBody;
 	bodyDef.position = CPhyEngine::ToPhyPosition(m_position);
-	CEngine::GetPhyEngine().CreateBody(bodyDef);
+	m_phyBody = CEngine::GetInstance().GetPhyEngine().CreateBody(bodyDef);
+
+	b2PolygonShape boxShape;
+	boxShape.SetAsBox(CPhyEngine::ScaleToPhy(width) / 2, CPhyEngine::ScaleToPhy(height) / 2);
+	b2FixtureDef fixtureDef;
+	fixtureDef.shape = &boxShape;
+	fixtureDef.density = 1.f;
+	m_phyBody->CreateFixture(&fixtureDef);
 }
 
 CGameObject::CGameObject()
@@ -28,8 +35,12 @@ bool CGameObject::Init()
 	return true;
 }
 
-bool CGameObject::Update(double dt)
+bool CGameObject::Update(float dt)
 {
+	if (m_phyBody)
+	{
+		m_position = CPhyEngine::ToPixPosition(m_phyBody->GetPosition());
+	}
 	return true;
 }
 

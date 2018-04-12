@@ -20,7 +20,7 @@ bool CWorld::Init()
 	return true;
 }
 
-bool CWorld::Update(double dt)
+bool CWorld::Update(float dt)
 {
 	for (auto it = m_objects.begin(); it != m_objects.end(); ++it)
 	{
@@ -49,6 +49,12 @@ bool CWorld::Register(CGameObject* object)
 	if (!object->HasValidId())
 	{
 		printf("Unable to register a game object with invalid id\n");
+		return false;
+	}
+
+	if (!object->Init())
+	{
+		printf("Unable to initialize the game object\n");
 		return false;
 	}
 
