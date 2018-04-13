@@ -3,6 +3,7 @@
 #include "GameWindow.h"
 #include "Renderer.h"
 #include "GameFont.h"
+#include "InputManager.h"
 
 CEngine::CEngine()
 	: m_engineRunning(false)
@@ -73,7 +74,6 @@ void CEngine::Run()
 	{
 		unsigned long currentFrameStartTime = SDL_GetTicks();
 		unsigned long elapsedTime = currentFrameStartTime - lastFrameStartTime;
-		printf("elapsed time: %lu\n", elapsedTime);
 		
 		ProcessInputs();
 		UpdateGameState((float)elapsedTime);
@@ -111,15 +111,7 @@ bool CEngine::Destroy()
 
 void CEngine::ProcessInputs()
 {
-	SDL_Event e;
-	while (SDL_PollEvent(&e) != 0)
-	{
-		//User requests quit
-		if (e.type == SDL_QUIT)
-		{
-			m_engineRunning = false;
-		}
-	}
+	m_inputManager.ProcessInputs();
 }
 
 void CEngine::UpdateGameState(float dt)
@@ -133,6 +125,11 @@ void CEngine::RenderWorld()
 	m_renderer.Clear();
 	m_world.Render();
 	m_renderer.Draw();
+}
+
+void CEngine::RequestShutdown()
+{
+	m_engineRunning = false;
 }
 
 CGameWindow& CEngine::GetWindow()
@@ -158,4 +155,9 @@ CWorld& CEngine::GetWorld()
 CPhyEngine& CEngine::GetPhyEngine()
 {
 	return m_phyEngine;
+}
+
+CInputManager& CEngine::GetInputManager()
+{
+	return m_inputManager;
 }

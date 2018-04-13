@@ -137,6 +137,8 @@
     <ClInclude Include="GameFont.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GameWindow.h" />
+    <ClInclude Include="InputTypes.h" />
+    <ClInclude Include="InputManager.h" />
     <ClInclude Include="PhyEngine.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Renderer.h" />
@@ -155,6 +157,7 @@
     <ClCompile Include="GameFont.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameWindow.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="PhyEngine.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Renderer.cpp" />
